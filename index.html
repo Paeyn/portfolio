@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter Mulligan - Lead Programmer & Full Stack Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #666;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+
+        .case-study {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .case-study:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .case-study .subtitle {
+            font-size: 1.1em;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .case-study p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .highlight {
+            background: #e8f2ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header, .section {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="profile-img">
+                Add Your Photo Here
+            </div>
+            <h1>Peter Mulligan</h1>
+            <p>Lead Programmer & Full Stack Developer</p>
+            <p>12+ years building scalable web and mobile applications</p>
+            
+            <div class="contact-info">
+                <a href="mailto:your.email@example.com">📧 your.email@example.com</a>
+                <a href="tel:+44-your-number">📱 +44 Your Number</a>
+                <a href="https://linkedin.com/in/your-profile" target="_blank">💼 LinkedIn</a>
+                <a href="https://github.com/your-username" target="_blank">💻 GitHub</a>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="section">
+            <h2>About Me</h2>
+            <p>I'm a Lead Programmer with 12+ years of progressive experience at Damibu LTD, where I've grown from Graduate Programmer to technical leadership. I specialize in building complex, scalable applications that make a real difference in people's lives - from healthcare apps used by NHS patients to cultural applications supporting dementia care.</p>
+            
+            <p>My expertise spans the full development stack, with particular strength in React.js, React Native, Node.js, and AWS cloud architecture. I've led the development of custom CMS platforms, implemented AI translation systems, and created sophisticated offline-first mobile applications.</p>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Frontend & Mobile</h4>
+                    <p>React.js, React Native, JavaScript/TypeScript, HTML5, CSS3, Responsive Design</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Backend & Database</h4>
+                    <p>Node.js, PostgreSQL, MySQL, RESTful APIs, Vector Search, AI Translation Integration</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Cloud & DevOps</h4>
+                    <p>AWS (Lambda, Aurora, RDS, S3), Serverless Architecture, Git, CI/CD</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Leadership & Process</h4>
+                    <p>Team Leadership, Technical Architecture, Agile Development, Mentoring</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Case Studies Section -->
+        <div class="section">
+            <h2>Featured Projects</h2>
+
+            <!-- Damibu Feeds CMS -->
+            <div class="case-study">
+                <h3>Damibu Feeds CMS</h3>
+                <div class="subtitle">Custom Content Management Platform with AI Translation</div>
+                
+                <p><strong>The Challenge:</strong> We needed a sophisticated content management system that could deliver culturally-adapted healthcare information to diverse communities. The system had to support multiple languages while maintaining cultural sensitivity and accuracy.</p>
+                
+                <p><strong>My Solution:</strong> I architected and built a comprehensive CMS from the ground up, featuring an AI-powered translation system with human validation workflows. The platform enabled NHS articles to include culturally-specific information for communities including Polish, Islamic, and other cultural groups.</p>
+
+                <div class="highlight">
+                    <strong>Key Technical Innovation:</strong> I led the migration from MySQL to PostgreSQL Aurora specifically to implement advanced vector search capabilities, dramatically improving content discoverability and relevance.
+                </div>
+
+                <p><strong>Technical Implementation:</strong></p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Built serverless architecture using AWS Lambda and Aurora PostgreSQL</li>
+                    <li>Integrated AI translation APIs with custom validation interface for translators</li>
+                    <li>Implemented vector search for intelligent content matching</li>
+                    <li>Created flexible content customization engine for cultural adaptation</li>
+                </ul>
+
+                <div class="tech-stack">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">AWS Lambda</span>
+                    <span class="tech-tag">PostgreSQL Aurora</span>
+                    <span class="tech-tag">Vector Search</span>
+                    <span class="tech-tag">AI Translation</span>
+                    <span class="tech-tag">React.js</span>
+                </div>
+
+                <p><strong>Impact:</strong> Enabled personalized healthcare information delivery in multiple languages while maintaining quality and cultural sensitivity. The system now powers content delivery for thousands of users across diverse communities.</p>
+            </div>
+
+            <!-- CATCH App -->
+            <div class="case-study">
+                <h3>CATCH (Common Approach to Children's Healthcare)</h3>
+                <div class="subtitle">NHS Partnership - Offline-First Parental Guidance App</div>
+                
+                <p><strong>The Challenge:</strong> The NHS needed a comprehensive mobile application to provide parental guidance from pregnancy through 5 years. The critical requirement was that the app must work completely offline, as many users might not have reliable internet access when they need healthcare information most.</p>
+                
+                <p><strong>My Solution:</strong> I developed a React Native application with a sophisticated offline-first architecture. The app synchronizes NHS medical articles and makes them fully accessible without internet connectivity, while integrating with our custom Damibu Feeds CMS for culturally-adapted content.</p>
+
+                <div class="highlight">
+                    <strong>Technical Challenge Solved:</strong> Created a complex offline content synchronization system that handles thousands of medical articles, images, and multimedia content, with intelligent sync strategies and conflict resolution.
+                </div>
+
+                <p><strong>Key Features:</strong></p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Complete offline functionality for all NHS articles and resources</li>
+                    <li>Culturally-adapted content delivery based on user preferences</li>
+                    <li>Intelligent sync when connectivity is available</li>
+                    <li>Cross-platform compatibility (iOS and Android)</li>
+                </ul>
+
+                <div class="tech-stack">
+                    <span class="tech-tag">React Native</span>
+                    <span class="tech-tag">Offline-First Architecture</span>
+                    <span class="tech-tag">Data Synchronization</span>
+                    <span class="tech-tag">CMS Integration</span>
+                    <span class="tech-tag">Cross-Platform</span>
+                </div>
+
+                <p><strong>Impact:</strong> Provided critical healthcare information access to parents regardless of connectivity or cultural background. The app serves thousands of families with reliable, culturally-sensitive healthcare guidance.</p>
+            </div>
+
+            <!-- MyHouseOfMemories -->
+            <div class="case-study">
+                <h3>MyHouseOfMemories</h3>
+                <div class="subtitle">National Museums Liverpool Partnership - Digital Dementia Support</div>
+                
+                <p><strong>The Challenge:</strong> National Museums Liverpool had a successful physical dementia support program called "House of Memories" that needed to be digitized to reach more families affected by dementia. The digital version had to maintain the accessibility and therapeutic value of the original program.</p>
+                
+                <p><strong>My Solution:</strong> I created a digital recreation of the acclaimed dementia support program, focusing heavily on accessibility and user experience design. The application needed to be intuitive for both dementia patients and their families.</p>
+
+                <div class="highlight">
+                    <strong>Design Focus:</strong> Collaborated closely with cultural heritage experts and dementia care specialists to ensure the digital translation preserved the therapeutic and cultural value of the original program.
+                </div>
+
+                <p><strong>Technical Approach:</strong></p>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li>Built responsive web application using React.js</li>
+                    <li>Implemented accessibility-first design principles</li>
+                    <li>Created intuitive navigation for users with cognitive challenges</li>
+                    <li>Optimized for various devices and screen sizes</li>
+                </ul>
+
+                <div class="tech-stack">
+                    <span class="tech-tag">React.js</span>
+                    <span class="tech-tag">Accessibility Design</span>
+                    <span class="tech-tag">User Experience</span>
+                    <span class="tech-tag">Responsive Design</span>
+                    <span class="tech-tag">Cultural Heritage</span>
+                </div>
+
+                <p><strong>Impact:</strong> Extended the reach of vital dementia support services through digital innovation, making the program accessible to families who couldn't attend physical sessions. The application provides therapeutic value and support to dementia patients and their caregivers.</p>
+            </div>
+        </div>
+
+        <!-- Career Journey -->
+        <div class="section">
+            <h2>Career Journey</h2>
+            <p>Over 12+ years at Damibu LTD, I've progressed through every level of technical responsibility:</p>
+            
+            <div style="margin: 30px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-weight: bold;">
+                    <span>Graduate Programmer (2012)</span>
+                    <span>→</span>
+                    <span>Junior (2014)</span>
+                    <span>→</span>
+                    <span>Programmer (2016)</span>
+                    <span>→</span>
+                    <span>Senior (2023)</span>
+                    <span>→</span>
+                    <span>Lead (2024)</span>
+                </div>
+            </div>
+
+            <p>This progression reflects not just time served, but demonstrated technical excellence, leadership growth, and the ability to tackle increasingly complex challenges. I've witnessed and contributed to the evolution of web and mobile technologies, always staying current with industry best practices.</p>
+
+            <p><strong>Currently seeking new opportunities</strong> in startup or SME environments where I can apply my technical expertise and leadership experience to build meaningful products that make a difference.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Peter Mulligan. Ready to build something amazing together.</p>
+    </div>
+</body>
+</html>
