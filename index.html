@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peter Mulligan - Lead Programmer & Full Stack Developer</title>
     <style>
+        :root {
+            --primary-color: #366091;
+            --secondary-color: #764ba2;
+            --background-light: #f8f9fa;
+            --background-dark: #255080;
+            --text-dark: #333;
+            --text-light: #666;
+            --shadow-light: rgba(0,0,0,0.1);
+            --highlight-bg: #e8f2ff;
+            --skill: #667eea
+        }
         * {
             margin: 0;
             padding: 0;
@@ -15,7 +26,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             min-height: 100vh;
         }
 
@@ -50,15 +61,16 @@
         .header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: var(--primary-color);
+            /* background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            background-clip: text; */
         }
 
         .header p {
             font-size: 1.2em;
-            color: #666;
+            color: var(--text-dark);
         }
 
         .contact-info {
@@ -70,7 +82,7 @@
         }
 
         .contact-info a {
-            color: #667eea;
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
         }
@@ -91,16 +103,16 @@
         .section h2 {
             font-size: 2em;
             margin-bottom: 30px;
-            color: #333;
+            color: var(--text-dark);
             text-align: center;
         }
 
         .case-study {
             margin-bottom: 50px;
             padding: 30px;
-            background: #f8f9fa;
+            background: var(--background-light);
             border-radius: 15px;
-            border-left: 5px solid #667eea;
+            border-left: 5px solid var(--primary-color);
         }
 
         .case-study:last-child {
@@ -110,12 +122,12 @@
         .case-study h3 {
             font-size: 1.8em;
             margin-bottom: 15px;
-            color: #333;
+            color: var(--text-dark);
         }
 
         .case-study .subtitle {
             font-size: 1.1em;
-            color: #667eea;
+            color: var(--primary-color);
             font-weight: 600;
             margin-bottom: 20px;
         }
@@ -133,7 +145,7 @@
         }
 
         .tech-tag {
-            background: #667eea;
+            background: var(--primary-color);
             color: white;
             padding: 6px 12px;
             border-radius: 20px;
@@ -142,11 +154,11 @@
         }
 
         .highlight {
-            background: #e8f2ff;
+            background: var(--highlight-bg);
             padding: 20px;
             border-radius: 10px;
             margin: 20px 0;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid var(--primary-color);
         }
 
         .skills-grid {
@@ -157,13 +169,13 @@
         }
 
         .skill-category {
-            background: #f8f9fa;
+            background: var(--background-light);
             padding: 20px;
             border-radius: 10px;
         }
 
         .skill-category h4 {
-            color: #667eea;
+            color: var(--primary-color);
             margin-bottom: 10px;
         }
 
@@ -184,31 +196,31 @@
         }
 
         .timeline-item {
-            background: #f8f9fa;
+            background: var(--background-light);
             padding: 12px 20px;
             border-radius: 10px;
             text-align: center;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid var(--primary-color);
             flex: 0 1 auto;
             min-width: 140px;
         }
 
         .timeline-year {
             font-size: 0.85em;
-            color: #667eea;
+            color: var(--primary-color);
             font-weight: 600;
         }
 
         .timeline-role {
             font-size: 1em;
             font-weight: bold;
-            color: #333;
+            color: var(--text-dark);
             margin-top: 5px;
         }
 
         .timeline-arrow {
             font-size: 1.5em;
-            color: #667eea;
+            color: var(--primary-color);
             font-weight: bold;
             flex: 0 0 auto;
         }
@@ -253,39 +265,39 @@
             <img class="profile-img" src="profile.png" alt="Peter Mulligan">
             <h1>Peter Mulligan</h1>
             <p>Lead Programmer & Full Stack Developer</p>
-            <p>12+ years building scalable web and mobile applications</p>
+            <p><span id="experience-years">13+</span> years building scalable web and mobile applications</p>
             
             <div class="contact-info">
-                <a href="mailto:your.email@example.com">📧 your.email@example.com</a>
-                <a href="tel:+44-your-number">📱 +44 Your Number</a>
-                <a href="https://linkedin.com/in/your-profile" target="_blank">💼 LinkedIn</a>
-                <a href="https://github.com/your-username" target="_blank">💻 GitHub</a>
+                <a href="mailto:pmulligan87@gmail.com">📧 pmulligan87@gmail.com</a>
+                <a href="tel:+447863675017">📱 +44 786367 5017</a>
+                <!-- <a href="https://linkedin.com/in/your-profile" target="_blank">💼 LinkedIn</a> -->
+                <!-- <a href="https://github.com/your-username" target="_blank">💻 GitHub</a> -->
             </div>
         </div>
 
         <!-- About Section -->
         <div class="section">
             <h2>About Me</h2>
-            <p>I'm a Lead Programmer with 12+ years of progressive experience at Damibu LTD, where I've grown from Graduate Programmer to technical leadership. I specialize in building complex, scalable applications that make a real difference in people's lives - from healthcare apps used by NHS patients to cultural applications supporting dementia care.</p>
+            <p>I'm a Lead Programmer with <span id="experience-years-about">13+</span> years of progressive experience at Damibu LTD, where I've grown from Graduate Programmer to technical leadership. I specialize in building complex, scalable applications that make a real difference in people's lives - from healthcare apps used by NHS patients to cultural applications supporting dementia care.</p>
             
             <p>My expertise spans the full development stack, with particular strength in React.js, React Native, Node.js, and AWS cloud architecture. I've led the development of custom CMS platforms, implemented AI translation systems, and created sophisticated offline-first mobile applications.</p>
 
             <div class="skills-grid">
                 <div class="skill-category">
                     <h4>Frontend & Mobile</h4>
-                    <p>React.js, React Native, JavaScript/TypeScript, HTML5, CSS3, Responsive Design</p>
+                    <p>React.js, React Native, PHP, JavaScript/TypeScript, HTML5, CSS3, C++ (Cocos2dx), Cross-platform Development</p>
                 </div>
                 <div class="skill-category">
                     <h4>Backend & Database</h4>
-                    <p>Node.js, PostgreSQL, MySQL, RESTful APIs, Vector Search, AI Translation Integration</p>
+                    <p>Node.js, PostgreSQL, MySQL, RESTful APIs, Vector Search, AI Translation, Encrypted SQLite, Serverless Architecture</p>
                 </div>
                 <div class="skill-category">
                     <h4>Cloud & DevOps</h4>
-                    <p>AWS (Lambda, Aurora, RDS, S3), Serverless Architecture, Git, CI/CD</p>
+                    <p>AWS (Lambda, Aurora, RDS, S3),Multi-Regional Deployment, Security Implementation, CI/CD</p>
                 </div>
                 <div class="skill-category">
-                    <h4>Leadership & Process</h4>
-                    <p>Team Leadership, Technical Architecture, Agile Development, Mentoring</p>
+                    <h4>Leadership & Specializations</h4>
+                    <p>Team Leadership, Technical Architecture, Platform Migrations, Security, Agile Development, Cultural Localization</p>
                 </div>
             </div>
         </div>
@@ -297,105 +309,111 @@
             <!-- Damibu Feeds CMS -->
             <div class="case-study">
                 <h3>Damibu Feeds CMS</h3>
-                <div class="subtitle">Custom Content Management Platform with AI Translation</div>
+                <div class="subtitle">Full-Stack Content Management Platform with AI Translation & Cultural Adaptation</div>
                 
-                <p><strong>The Challenge:</strong> We needed a sophisticated content management system that could deliver culturally-adapted healthcare information to diverse communities. The system had to support multiple languages while maintaining cultural sensitivity and accuracy.</p>
+                <p><strong>The Challenge:</strong> We needed a sophisticated, multi-tenant content management system that could deliver culturally-adapted healthcare information to diverse communities. The system required complex content relationships where feeds could follow and customize content from other feeds while maintaining security and content integrity.</p>
                 
-                <p><strong>My Solution:</strong> I architected and built a comprehensive CMS from the ground up, featuring an AI-powered translation system with human validation workflows. The platform enabled NHS articles to include culturally-specific information for communities including Polish, Islamic, and other cultural groups.</p>
+                <p><strong>My Role:</strong> Full-stack development and architecture leadership. I was responsible for all aspects including frontend dashboard, backend API development, database design, security implementation, and the complete migration from MySQL to PostgreSQL Aurora.</p>
 
                 <div class="highlight">
-                    <strong>Key Technical Innovation:</strong> I led the migration from MySQL to PostgreSQL Aurora specifically to implement advanced vector search capabilities, dramatically improving content discoverability and relevance.
+                    <strong>Technical Innovation:</strong> Created a flexible article-block system where content is composed of modular HTML blocks that can be reordered and customized. Built feed relationship engine allowing feeds to follow other feeds and customize their published content by reordering blocks or inserting cultural adaptations.
                 </div>
 
-                <p><strong>Technical Implementation:</strong></p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>Built serverless architecture using AWS Lambda and Aurora PostgreSQL</li>
-                    <li>Integrated AI translation APIs with custom validation interface for translators</li>
-                    <li>Implemented vector search for intelligent content matching</li>
-                    <li>Created flexible content customization engine for cultural adaptation</li>
-                </ul>
+                <p><strong>Frontend Development:</strong> Built comprehensive React.js dashboard providing intuitive content management interface. Implemented real-time content editing with live preview capabilities and advanced user management with role-based permissions for multi-tenant security.</p>
+
+                <p><strong>Backend Architecture:</strong> Designed complete RESTful API using Node.js and AWS Lambda serverless architecture. Built scalable microservices handling content management, user authentication, feed relationships, and content distribution. Implemented comprehensive security layer, API rate limiting, and SQL injection prevention.</p>
+
+                <p><strong>Database Migration Leadership:</strong> Initially architected using MySQL, then led complete migration to PostgreSQL Aurora specifically to implement advanced vector search capabilities for improved content discoverability and relevance.</p>
+
+                <p><strong>AI Integration:</strong> Integrated AI-powered translation APIs with custom validation workflows. Built translator interface within CMS enabling human validation and correction of AI-generated translations, ensuring quality while enabling multi-language content delivery.</p>
 
                 <div class="tech-stack">
+                    <span class="tech-tag">React.js</span>
                     <span class="tech-tag">Node.js</span>
                     <span class="tech-tag">AWS Lambda</span>
                     <span class="tech-tag">PostgreSQL Aurora</span>
                     <span class="tech-tag">Vector Search</span>
                     <span class="tech-tag">AI Translation</span>
-                    <span class="tech-tag">React.js</span>
+                    <span class="tech-tag">RESTful APIs</span>
                 </div>
 
-                <p><strong>Impact:</strong> Enabled personalized healthcare information delivery in multiple languages while maintaining quality and cultural sensitivity. The system now powers content delivery for thousands of users across diverse communities.</p>
+                <p><strong>Impact:</strong> Powers content delivery for thousands of users across diverse cultural communities. The platform's flexible architecture enables personalized healthcare information delivery in multiple languages while maintaining quality, security, and cultural sensitivity.</p>
             </div>
 
             <!-- CATCH App -->
             <div class="case-study">
                 <h3>CATCH (Common Approach to Children's Healthcare)</h3>
-                <div class="subtitle">NHS Partnership - Offline-First Parental Guidance App</div>
+                <div class="subtitle">NHS Partnership - Cross-Platform Mobile App with Intelligent Notifications</div>
                 
-                <p><strong>The Challenge:</strong> The NHS needed a comprehensive mobile application to provide parental guidance from pregnancy through 5 years. The critical requirement was that the app must work completely offline, as many users might not have reliable internet access when they need healthcare information most.</p>
+                <p><strong>The Challenge:</strong> The NHS needed a comprehensive mobile application to provide parental guidance from pregnancy through 5 years. Critical requirements included complete offline functionality, intelligent age-based notifications, location services for NHS facilities, and integration with local healthcare providers.</p>
                 
-                <p><strong>My Solution:</strong> I developed a React Native application with a sophisticated offline-first architecture. The app synchronizes NHS medical articles and makes them fully accessible without internet connectivity, while integrating with our custom Damibu Feeds CMS for culturally-adapted content.</p>
+                <p><strong>Platform Migration Leadership:</strong> Originally architected using C++ with Cocos2dx engine for cross-platform development. I led a complete migration to React Native, improving development velocity and maintainability while preserving all existing functionality and ensuring zero disruption to users.</p>
+
+                <p><strong>Offline-First Architecture:</strong> Implemented encrypted SQLite database ensuring secure storage of sensitive NHS content and user data. Built robust data synchronization engine handling thousands of NHS articles and multimedia content with intelligent sync strategies and conflict resolution.</p>
 
                 <div class="highlight">
-                    <strong>Technical Challenge Solved:</strong> Created a complex offline content synchronization system that handles thousands of medical articles, images, and multimedia content, with intelligent sync strategies and conflict resolution.
+                    <strong>Intelligent Notification System:</strong> Developed sophisticated notification engine using article metadata with triggerstart and triggerend parameters. Built age-based content relevancy system delivering timely NHS maternity and childcare information based on user's child's age and development stage.
                 </div>
 
-                <p><strong>Key Features:</strong></p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>Complete offline functionality for all NHS articles and resources</li>
-                    <li>Culturally-adapted content delivery based on user preferences</li>
-                    <li>Intelligent sync when connectivity is available</li>
-                    <li>Cross-platform compatibility (iOS and Android)</li>
-                </ul>
+                <p><strong>Location-Based Services:</strong> Built comprehensive NHS facility mapping system displaying local healthcare locations, hubs, and services with real-time facility information including opening hours, contact details, and available services. Implemented geolocation-based facility discovery helping parents find nearest healthcare resources.</p>
+
+                <p><strong>Local News Integration:</strong> Developed location-aware news aggregation system pulling content from local GP websites and healthcare providers. Built geographic content filtering based on user-selected regions (Liverpool, St Helens, Cheshire, etc.) with automated content scraping and parsing from multiple local healthcare sources.</p>
+
+                <p><strong>CMS Integration:</strong> Seamlessly integrated with custom Damibu Feeds CMS for culturally-adapted content delivery, implementing dynamic content loading while maintaining offline functionality and building content caching mechanisms ensuring users always have access to latest NHS guidance.</p>
 
                 <div class="tech-stack">
                     <span class="tech-tag">React Native</span>
-                    <span class="tech-tag">Offline-First Architecture</span>
-                    <span class="tech-tag">Data Synchronization</span>
+                    <span class="tech-tag">C++ (Cocos2dx)</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">NodeJS</span>
+                    <span class="tech-tag">AWS Lambda / RDS</span>
+                    <span class="tech-tag">Encrypted SQLite</span>
+                    <span class="tech-tag">Push Notifications</span>
+                    <span class="tech-tag">Geolocation</span>
+                    <span class="tech-tag">Offline-First</span>
+                    <span class="tech-tag">Data Sync</span>
                     <span class="tech-tag">CMS Integration</span>
-                    <span class="tech-tag">Cross-Platform</span>
                 </div>
 
-                <p><strong>Impact:</strong> Provided critical healthcare information access to parents regardless of connectivity or cultural background. The app serves thousands of families with reliable, culturally-sensitive healthcare guidance.</p>
+                <p><strong>Impact:</strong> Serves thousands of families with reliable, culturally-sensitive healthcare guidance. The intelligent notification system ensures parents receive relevant information at optimal developmental stages, while offline functionality provides critical access regardless of connectivity.</p>
             </div>
 
             <!-- MyHouseOfMemories -->
             <div class="case-study">
                 <h3>MyHouseOfMemories</h3>
-                <div class="subtitle">National Museums Liverpool Partnership - Digital Dementia Support</div>
+                <div class="subtitle">National Museums Liverpool - Digital Dementia Support Platform</div>
                 
-                <p><strong>The Challenge:</strong> National Museums Liverpool had a successful physical dementia support program called "House of Memories" that needed to be digitized to reach more families affected by dementia. The digital version had to maintain the accessibility and therapeutic value of the original program.</p>
+                <p><strong>The Challenge:</strong> National Museums Liverpool needed to digitize their acclaimed "House of Memories" dementia support program to reach more families.</p>
                 
-                <p><strong>My Solution:</strong> I created a digital recreation of the acclaimed dementia support program, focusing heavily on accessibility and user experience design. The application needed to be intuitive for both dementia patients and their families.</p>
-
                 <div class="highlight">
-                    <strong>Design Focus:</strong> Collaborated closely with cultural heritage experts and dementia care specialists to ensure the digital translation preserved the therapeutic and cultural value of the original program.
+                <p><strong>Full-Stack Development Leadership:</strong> Built comprehensive content management dashboard using PHP, enabling museum staff to create and manage therapeutic objects and regional packages. Developed intuitive interface supporting multi-language and multi-regional content organization for diverse community needs.</p>
                 </div>
+                <p><strong>Serverless Backend Architecture:</strong> Architected serverless backend using AWS Lambda for handling concurrent synchronous tasks and content processing. Built scalable content processing pipeline capable of handling multiple package generation requests simultaneously with robust error handling and logging systems.</p>
 
-                <p><strong>Technical Approach:</strong></p>
-                <ul style="margin-left: 20px; margin-bottom: 15px;">
-                    <li>Built responsive web application using React.js</li>
-                    <li>Implemented accessibility-first design principles</li>
-                    <li>Created intuitive navigation for users with cognitive challenges</li>
-                    <li>Optimized for various devices and screen sizes</li>
-                </ul>
+                <p><strong>Content Package System:</strong> Developed sophisticated content packaging system enabling creation of region-specific and language-specific dementia support materials. Built flexible object and package creation workflow allowing museum staff to tailor therapeutic content for different communities with content versioning and package management.</p>
+
+                <p><strong>Multi-Regional Distribution:</strong> Created S3-based distribution system where packages operate independently during system outages. Built content localization framework supporting multiple regions and languages, with content inheritance system allowing regional packages to share base content while adding local customizations.</p>
+
+                <p><strong>Cultural Heritage Integration:</strong> Collaborated closely with cultural heritage experts and dementia care specialists to ensure therapeutic value preservation. Built content import/export systems enabling integration with existing museum digital archives with comprehensive audit trails and version control.</p>
 
                 <div class="tech-stack">
-                    <span class="tech-tag">React.js</span>
-                    <span class="tech-tag">Accessibility Design</span>
-                    <span class="tech-tag">User Experience</span>
-                    <span class="tech-tag">Responsive Design</span>
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">AWS Lambda</span>
+                    <span class="tech-tag">Amazon S3</span>
+                    <span class="tech-tag">Content Packaging</span>
+                    <span class="tech-tag">Multi-Regional</span>
+                    <span class="tech-tag">Accessibility</span>
                     <span class="tech-tag">Cultural Heritage</span>
                 </div>
 
-                <p><strong>Impact:</strong> Extended the reach of vital dementia support services through digital innovation, making the program accessible to families who couldn't attend physical sessions. The application provides therapeutic value and support to dementia patients and their caregivers.</p>
+                <p><strong>Impact:</strong> Extended reach of vital dementia support services through digital innovation. The platform's self-contained package system enables deployment to communities without reliable internet infrastructure, significantly expanding access to dementia care resources.</p>
             </div>
         </div>
 
         <!-- Career Journey -->
         <div class="section">
             <h2>Career Journey</h2>
-            <p>Over 12+ years at Damibu LTD, I've progressed through every level of technical responsibility:</p>
+            <p>Over <span id="experience-years-career">13+</span> years at Damibu LTD, I've progressed through every level of technical responsibility:</p>
             
             <div class="career-timeline">
                 <div class="timeline-item">
@@ -431,7 +449,46 @@
     </div>
 
     <div class="footer">
-        <p>&copy; 2025 Peter Mulligan. Ready to build something amazing together.</p>
+        <p>&copy; <span id="current-year">2025</span> Peter Mulligan. Ready to build something amazing together.</p>
     </div>
+
+    <script>
+        function calculateExperience() {
+            const startDate = new Date('2012-06-01');       // Start day of Damibu LTD employment
+            const currentDate = new Date();
+
+            const yearsDiff = currentDate.getFullYear() - startDate.getFullYear();
+            const monthsDiff = currentDate.getMonth() - startDate.getMonth();
+            let totalYears = yearsDiff;
+            
+            if ( monthsDiff < 0 ) {
+                totalYears--;
+            }
+
+            const experienceText = `${totalYears}${monthsDiff > 0 ? '+' : ''}`;
+
+            ['experience-years','experience-years-about','experience-years-career']
+            .forEach(id => {
+                const element = document.getElementById(id);
+                if ( element ) {
+                    element.textContent = experienceText;
+                }
+            });
+
+            // Update copyright
+            const currentYearElement = document.getElementById('current-year');
+            if ( currentYearElement ) {
+                const creationYear = 2025;
+                const currentYear = currentDate.getFullYear();
+                if ( currentYear > creationYear ) {
+                    currentYearElement.textContent = `${creationYear} - ${currentYear}`;
+                } else {
+                    currentYearElement.textContent = creationYear;
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', calculateExperience);
+    </script>
 </body>
 </html>
