@@ -37,11 +37,21 @@ function calculateExperience() {
 }
 
 // Initialize application when DOM is ready
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+  // console.time("initializeApp");
   calculateExperience();
-  createCodePattern();
-  createParticles();
-  
+  // console.timeEnd("initializeApp");
+
+  setTimeout(() => {
+    // console.time("createCodePattern");
+    createCodePattern();
+    // console.timeEnd("createCodePattern");
+
+    // console.time("createParticles");
+    createParticles();
+    // console.timeEnd("createParticles");
+  }, 0);
+
   // Add resize listener to handle screen size changes
-  window.addEventListener('resize', handleResize);
+  window.addEventListener("resize", handleResize);
 });
