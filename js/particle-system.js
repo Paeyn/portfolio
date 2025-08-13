@@ -82,6 +82,7 @@ function updateParticle(particle, codeParticles) {
 function handleResize() {
   const particleContainer = document.getElementById("particleContainer");
   if (!particleContainer) return;
+  // particleContainer.innerHTML = "";
 
   if (window.innerWidth <= 768) {
     // Mobile view - stop creating particles and clear existing ones
@@ -93,8 +94,8 @@ function handleResize() {
     particleContainer.innerHTML = "";
   } else {
     // Desktop view - start particles if not already running
-    if (!window.particleInterval) {
-      createParticles();
-    }
+    // if (!window.particleInterval) {
+      // createParticles();
+    // }
   }
 }
