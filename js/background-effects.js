@@ -97,7 +97,7 @@ function createCodePattern() {
       lineElement.style.right = Math.random() * 100 - 50 + "px";
     }
 
-    lineElement.style.transform = `rotate(${(Math.random() - 0.5) * 4}deg)`;
+    // lineElement.style.transform = `rotate(${(Math.random() - 0.5) * 4}deg)`;
     lineElement.style.opacity = Math.random() * 0.4 + 0.2;
     pattern.appendChild(lineElement);
   }
