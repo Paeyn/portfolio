@@ -53,5 +53,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 0);
 
   // Add resize listener to handle screen size changes
-  window.addEventListener("resize", handleResize);
+  // window.addEventListener("resize", handleResize);
+  window.addEventListener("resize", function () {
+    if ( this.resizeTo ) clearTimeout( this.resizeTo );
+    this.resizeTo = setTimeout(function () {
+      window.dispatchEvent(new Event("resizeEnd"));
+    }, 500);
+    // console.time("handleResize");
+    handleResize();
+    // console.timeEnd("handleResize");
+  });
+  window.addEventListener("resizeEnd", function () {
+    createCodePattern();
+  });
 });

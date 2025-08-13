@@ -558,7 +558,7 @@ body {
 }
 
 /* Mobile Responsive Styles */
-@media (max-width: 48rem) {
+@media (max-width: 768px) {
   .container {
     padding: 0.5rem;
   }
@@ -605,8 +605,10 @@ body {
   }
 
   .code-pattern {
-    opacity: 0.08;
-    font-size: 0.5rem;
+    display: none;
+    /* opacity: 0.08; */
+    /* opacity: 1; */
+    /* font-size: 0.5rem; */
   }
 
   .floating-shapes .shape {

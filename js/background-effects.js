@@ -1,5 +1,14 @@
 // Background code pattern generation
 function createCodePattern() {
+  const pattern = document.getElementById("codePattern");
+  if (!pattern) return;
+  
+  if (window.innerWidth <= 768) {
+	// Clear existing content
+	pattern.innerHTML = "";
+	return;
+  }
+
   const codeSnippets = [
     "const app = express();",
     "app.use(cors());",
@@ -53,8 +62,18 @@ function createCodePattern() {
     'USING gin(to_tsvector("english", content));',
   ];
 
-  const pattern = document.getElementById("codePattern");
-  if (!pattern) return;
+//   const pattern = document.getElementById("codePattern");
+//   if (!pattern) return;
+
+	// const container = document.querySelector(".container");
+	// let codeSnippets = [];
+	// if ( container ) {
+	// 	codeSnippets = Array.from(container.querySelectorAll("*"))
+	// 	.map(el => el.textContent.replace(/[\r\n]/g, '').replace(/\s+/g, ' ').trim())
+	// 	.filter( text => text.length > 0);
+
+	// 	console.log( 'container', codeSnippets );
+	// }
 
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
@@ -64,6 +83,8 @@ function createCodePattern() {
   // Clear existing content
   pattern.innerHTML = "";
 
+  console.log( 'Creating code pattern with approxCharsPerLine:', approxCharsPerLine, 'and linesNeeded:', linesNeeded);
+
   // Create a grid of code snippets to fill the screen
   for (let row = 0; row < linesNeeded + 10; row++) {
     let line = "";
@@ -72,19 +93,30 @@ function createCodePattern() {
     while (currentLength < approxCharsPerLine) {
       const randomSnippet =
         codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+		// console.log( "Have randomSnippet", randomSnippet );
       const spacing = "    "; // Indentation
 
-      if (
-        currentLength + randomSnippet.length + spacing.length <=
-        approxCharsPerLine
-      ) {
-        line += spacing + randomSnippet;
-        currentLength += randomSnippet.length + spacing.length;
-      } else {
-        break;
-      }
+	  line += spacing + randomSnippet;
+	  currentLength += randomSnippet.length + spacing.length;
+	  if ( currentLength + spacing.length >= approxCharsPerLine ) {
+		break;
+	  }
+    //   if (
+    //     currentLength + randomSnippet.length + spacing.length <=
+    //     approxCharsPerLine
+	// 	// || currentLength == 0
+	// 	// || true
+    //   ) {
+    //     line += spacing + randomSnippet;
+    //     currentLength += randomSnippet.length + spacing.length;
+    //   } else {
+	// 	if ( currentLength == 0 ) {
+	// 		console.log( "Current length exceeded", {currentLength, snippetLength:randomSnippet.length, spacingLength:spacing.length, approxCharsPerLine });
+	// 	}
+    //     break;
+    //   }
     }
-
+	// console.log( line, currentLength );
     const lineElement = document.createElement("div");
     lineElement.textContent = line;
     lineElement.style.position = "absolute";

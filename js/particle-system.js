@@ -70,7 +70,8 @@ function createParticles() {
 
 // Helper to update a single particle
 function updateParticle(particle, codeParticles) {
-  const randomCode = codeParticles[Math.floor(Math.random() * codeParticles.length)];
+  const randomCode =
+    codeParticles[Math.floor(Math.random() * codeParticles.length)];
   particle.textContent = randomCode;
   particle.style.left = Math.random() * 100 + "%";
   particle.style.top = Math.random() * 100 + "%";
@@ -81,21 +82,23 @@ function updateParticle(particle, codeParticles) {
 // Handle window resize for responsive particle management
 function handleResize() {
   const particleContainer = document.getElementById("particleContainer");
-  if (!particleContainer) return;
-  // particleContainer.innerHTML = "";
-
-  if (window.innerWidth <= 768) {
-    // Mobile view - stop creating particles and clear existing ones
-    if (window.particleInterval) {
-      clearInterval(window.particleInterval);
-      window.particleInterval = null;
-    }
-    // Clear existing particles
-    particleContainer.innerHTML = "";
-  } else {
-    // Desktop view - start particles if not already running
-    // if (!window.particleInterval) {
+  if (particleContainer) {
+    // particleContainer.innerHTML = "";
+    if (window.innerWidth <= 768) {
+      // Mobile view - stop creating particles and clear existing ones
+      if (window.particleInterval) {
+        clearInterval(window.particleInterval);
+        window.particleInterval = null;
+      }
+      // Clear existing particles
+      particleContainer.innerHTML = "";
+    } else {
+      // Desktop view - start particles if not already running
+      // if (!window.particleInterval) {
       // createParticles();
-    // }
+      // }
+    }
   }
+  // Code pattern adjustment
+  // createCodePattern();
 }
