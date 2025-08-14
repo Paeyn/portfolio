@@ -83,7 +83,7 @@ function createCodePattern() {
   // Clear existing content
   pattern.innerHTML = "";
 
-  console.log( 'Creating code pattern with approxCharsPerLine:', approxCharsPerLine, 'and linesNeeded:', linesNeeded);
+  // console.log( 'Creating code pattern with approxCharsPerLine:', approxCharsPerLine, 'and linesNeeded:', linesNeeded);
 
   // Create a grid of code snippets to fill the screen
   for (let row = 0; row < linesNeeded + 10; row++) {
