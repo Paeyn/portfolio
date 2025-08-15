@@ -23,6 +23,15 @@
       href="images/favicon-16x16.png"
     />
     <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/dark.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script> -->
+    <!-- <script>
+      hljs.highlightAll();
+    </script> -->
   </head>
   <body>
     <!-- Animated Background Elements -->
@@ -38,8 +47,12 @@
       <!-- Header Section -->
       <div class="header">
         <picture>
-          <source srcset="images/profile.webp" type="image/webp">
-          <img src="images/profile.png" alt="Peter Mulligan" class="profile-img">
+          <source srcset="images/profile.webp" type="image/webp" />
+          <img
+            src="images/profile.png"
+            alt="Peter Mulligan"
+            class="profile-img"
+          />
         </picture>
         <h1>Peter Mulligan</h1>
         <p>Lead Programmer & Full Stack Developer</p>
@@ -154,7 +167,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Case Studies Section -->
       <div class="section">
         <h2>Featured Projects</h2>
@@ -167,80 +180,100 @@
             Cultural Adaptation
           </div>
 
-          <p>
-            <strong>The Challenge:</strong> We needed a sophisticated,
-            multi-tenant content management system that could deliver
-            culturally-adapted healthcare information to diverse communities.
-            The system required complex content relationships where feeds could
-            follow and customize content from other feeds while maintaining
-            security and content integrity.
-          </p>
+          <div class="project-tabs">
+            <button
+              class="project-tab active"
+              onclick="loadTabContent(event,'feeds-overview')"
+            >
+              Project Overview
+            </button>
+            <button
+              class="project-tab"
+              onclick="loadTabContent(event,'feeds-example1')"
+            >
+              RESTful API Handler
+            </button>
+          </div>
+          <div id="feeds-overview" class="tab-content active">
+            <p>
+              <strong>The Challenge:</strong> We needed a sophisticated,
+              multi-tenant content management system that could deliver
+              culturally-adapted healthcare information to diverse communities.
+              The system required complex content relationships where feeds
+              could follow and customize content from other feeds while
+              maintaining security and content integrity.
+            </p>
 
-          <p>
-            <strong>My Role:</strong> Full-stack development and architecture
-            leadership. I was responsible for all aspects including frontend
-            dashboard, backend API development, database design, security
-            implementation, and the complete migration from MySQL to PostgreSQL
-            Aurora.
-          </p>
+            <p>
+              <strong>My Role:</strong> Full-stack development and architecture
+              leadership. I was responsible for all aspects including frontend
+              dashboard, backend API development, database design, security
+              implementation, and the complete migration from MySQL to
+              PostgreSQL Aurora.
+            </p>
 
-          <div class="highlight">
-            <strong>Technical Innovation:</strong> Created a flexible
-            article-block system where content is composed of modular HTML
-            blocks that can be reordered and customized. Built feed relationship
-            engine allowing feeds to follow other feeds and customize their
-            published content by reordering blocks or inserting cultural
-            adaptations.
+            <div class="highlight">
+              <strong>Technical Innovation:</strong> Created a flexible
+              article-block system where content is composed of modular HTML
+              blocks that can be reordered and customized. Built feed
+              relationship engine allowing feeds to follow other feeds and
+              customize their published content by reordering blocks or
+              inserting cultural adaptations.
+            </div>
+
+            <p>
+              <strong>Frontend Development:</strong> Built comprehensive
+              React.js dashboard providing intuitive content management
+              interface. Implemented real-time content editing with live preview
+              capabilities and advanced user management with role-based
+              permissions for multi-tenant security.
+            </p>
+
+            <p>
+              <strong>Backend Architecture:</strong> Designed complete RESTful
+              API using Node.js and AWS Lambda serverless architecture. Built
+              scalable microservices handling content management, user
+              authentication, feed relationships, and content distribution.
+              Implemented comprehensive security layer, API rate limiting, and
+              SQL injection prevention.
+            </p>
+
+            <p>
+              <strong>Database Migration Leadership:</strong> Initially
+              architected using MySQL, then led complete migration to PostgreSQL
+              Aurora specifically to implement advanced vector search
+              capabilities for improved content discoverability and relevance.
+            </p>
+
+            <p>
+              <strong>AI Integration:</strong> Integrated AI-powered translation
+              APIs with custom validation workflows. Built translator interface
+              within CMS enabling human validation and correction of
+              AI-generated translations, ensuring quality while enabling
+              multi-language content delivery.
+            </p>
+
+            <div class="tech-stack">
+              <span class="tech-tag">React.js</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">AWS Lambda</span>
+              <span class="tech-tag">PostgreSQL Aurora</span>
+              <span class="tech-tag">Vector Search</span>
+              <span class="tech-tag">AI Translation</span>
+              <span class="tech-tag">RESTful APIs</span>
+            </div>
+
+            <p>
+              <strong>Impact:</strong> Powers content delivery for thousands of
+              users across diverse cultural communities. The platform's flexible
+              architecture enables personalized healthcare information delivery
+              in multiple languages while maintaining quality, security, and
+              cultural sensitivity.
+            </p>
           </div>
 
-          <p>
-            <strong>Frontend Development:</strong> Built comprehensive React.js
-            dashboard providing intuitive content management interface.
-            Implemented real-time content editing with live preview capabilities
-            and advanced user management with role-based permissions for
-            multi-tenant security.
-          </p>
-
-          <p>
-            <strong>Backend Architecture:</strong> Designed complete RESTful API
-            using Node.js and AWS Lambda serverless architecture. Built scalable
-            microservices handling content management, user authentication, feed
-            relationships, and content distribution. Implemented comprehensive
-            security layer, API rate limiting, and SQL injection prevention.
-          </p>
-
-          <p>
-            <strong>Database Migration Leadership:</strong> Initially
-            architected using MySQL, then led complete migration to PostgreSQL
-            Aurora specifically to implement advanced vector search capabilities
-            for improved content discoverability and relevance.
-          </p>
-
-          <p>
-            <strong>AI Integration:</strong> Integrated AI-powered translation
-            APIs with custom validation workflows. Built translator interface
-            within CMS enabling human validation and correction of AI-generated
-            translations, ensuring quality while enabling multi-language content
-            delivery.
-          </p>
-
-          <div class="tech-stack">
-            <span class="tech-tag">React.js</span>
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">AWS Lambda</span>
-            <span class="tech-tag">PostgreSQL Aurora</span>
-            <span class="tech-tag">Vector Search</span>
-            <span class="tech-tag">AI Translation</span>
-            <span class="tech-tag">RESTful APIs</span>
+          <div id="feeds-example1" class="tab-content">
           </div>
-
-          <p>
-            <strong>Impact:</strong> Powers content delivery for thousands of
-            users across diverse cultural communities. The platform's flexible
-            architecture enables personalized healthcare information delivery in
-            multiple languages while maintaining quality, security, and cultural
-            sensitivity.
-          </p>
         </div>
 
         <!-- CATCH App -->
@@ -251,6 +284,12 @@
             Notifications
           </div>
 
+          <div class="project-tabs">
+            <button class="project-tab active" onclick="loadTabContent(event,'catch-overview')">Project Overview</button>
+            <button class="project-tab" onclick="loadTabContent(event,'catch-example1')">Content Sync</button>
+          </div>
+          <div id="catch-overview" class="tab-content active">
+            
           <p>
             <strong>The Challenge:</strong> The NHS needed a comprehensive
             mobile application to provide parental guidance from pregnancy
@@ -331,6 +370,10 @@
             optimal developmental stages, while offline functionality provides
             critical access regardless of connectivity.
           </p>
+          </div>
+
+          <div id="catch-example1" class="tab-content">
+          </div>
         </div>
 
         <!-- MyHouseOfMemories -->
@@ -340,6 +383,12 @@
             National Museums Liverpool - Digital Dementia Support Platform
           </div>
 
+          <div class="project-tabs">
+            <button class="project-tab active" onclick="loadTabContent(event,'hom-overview')">Project Overview</button>
+            <button class="project-tab" onclick="loadTabContent(event,'hom-example1')">Content Sync using static files on S3</button>
+          </div>
+
+          <div id="hom-overview" class="tab-content active">
           <p>
             <strong>The Challenge:</strong> National Museums Liverpool needed to
             digitize their acclaimed "House of Memories" dementia support
@@ -408,6 +457,9 @@
             internet infrastructure, significantly expanding access to dementia
             care resources.
           </p>
+        </div>
+
+        <div id="hom-example1" class="tab-content"></div>
         </div>
       </div>
 
