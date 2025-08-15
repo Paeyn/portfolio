@@ -46,6 +46,7 @@ async function preloadAllTabContent() {
 	const loadPromises = Array.from(allTabContent).map( async ele => {
 		const tabID = ele.getAttribute('id');
 		try {
+      // throw new Error('error preloading');
 			const response = await fetch(`tabs/${tabID}.html`);
 			if ( response.ok ) {
 				const content = await response.text();
@@ -53,7 +54,7 @@ async function preloadAllTabContent() {
 				ele.innerHTML = content;
 
 				ele.querySelectorAll('pre > code').forEach( el => {
-					console.log( 'trying to highlight', el );
+					// console.log( 'trying to highlight', el );
 					hljs.highlightElement(el); 
 				});
 				// hljs.highlightElement(ele);
@@ -70,7 +71,7 @@ async function preloadAllTabContent() {
 	// hljs.highlightAll();
 	return results;
 }
-
+let testCounts = {};
 async function loadTabContent(event, tabID) {
   const caseStudy = event.target.closest(".case-study");
   const tabs = caseStudy.querySelectorAll(".project-tab");
@@ -84,12 +85,19 @@ async function loadTabContent(event, tabID) {
   const selectedTab = document.getElementById(tabID);
   if (selectedTab) {
     selectedTab.classList.add("active");
-	return;
+	// return;
     if (!tabID.includes("-overview")) {
       if (!tabContentCache[tabID]) {
+        // console.log( 'setting loading div' );
         selectedTab.innerHTML = `<div class="loading">Loading code example...</div>`;
 
         try {
+          if ( !testCounts[tabID] ) testCounts[tabID] = 0;
+          testCounts[tabID] += 1;
+          // console.log( 'testCounts', testCounts[tabID] );
+          // if ( testCounts[tabID] < 3 ) throw new Error('lazy init error');
+          // await new Promise(res => setTimeout(res,3000) );
+          // throw new Error('test');
           const response = await fetch(`tabs/${tabID}.html`);
           if (response.ok) {
             let content = await response.text();
@@ -103,17 +111,27 @@ async function loadTabContent(event, tabID) {
             tabContentCache[tabID] = content;
             selectedTab.innerHTML = content;
             // hljs.highlightAll();
+            
+            selectedTab.querySelectorAll('pre > code').forEach( ele => hljs.highlightElement(ele) );
+
           } else {
             selectedTab.innerHTML = `<div class="loading">Code example not found.</div>`;
           }
         } catch (err) {
           console.error(err);
-          selectedTab.innerHTML(
-            '<div class="loading">Failed to load code example.</div>'
-          );
+          selectedTab.innerHTML = '<div class="loading">Failed to load code example.</div>';
+
+          if ( testCounts[tabID] < 3 ) { 
+            // console.log( "trying again soon..." );
+            setTimeout(() => {
+              // console.log( 'trying again', tabID );
+              loadTabContent(event,tabID);
+            }, 1000);
+          }
         }
       } else {
-        selectedTab.innerHTML = tabContentCache[tabID];
+        // selectedTab.innerHTML = tabContentCache[tabID];
+        // selectedTab.querySelectorAll('pre > code').forEach( ele => hljs.highlightElement(el) );
       }
     }
   }
