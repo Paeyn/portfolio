@@ -38,6 +38,38 @@ function calculateExperience() {
 
 const tabContentCache = {};
 
+
+/**
+ * Preload all tab content files from /tabs directory
+ * Call this on page load to eliminate flash when switching tabs
+ */
+async function preloadAllTabContent() {
+
+  const allTabContent = document.querySelectorAll('.tab-content:not([id*="-overview"])');
+  
+  const tabIDs = Array.from(allTabContent).map( ele => ele.getAttribute('id') );
+
+  const loadPromises = tabIDs.map( async tabID => {
+    try {
+      const response = await fetch(`tabs/${tabID}.html`);
+      if ( response.ok ) {
+        const content = await response.text();
+        tabContentCache[tabID] = content;
+        return {tabID, success:true};
+      }
+    } catch (err) {
+      console.error(`Failed to preload: ${tabID}:`, err);
+      tabContentCache[tabID] = `<div class="loading">Failed to load code example.</div>`
+    }
+  });
+
+  const results = await Promise.all(loadPromises);
+  const success = results.filter(r => r.success).length;
+  const fail = results.filter(r => !r.success).length;
+
+  return results;
+}
+
 async function loadTabContent(event, tabID) {
   const caseStudy = event.target.closest(".case-study");
   const tabs = caseStudy.querySelectorAll(".project-tab");
@@ -87,32 +119,26 @@ async function loadTabContent(event, tabID) {
 
 // Initialize application when DOM is ready
 document.addEventListener("DOMContentLoaded", function () {
-  // console.time("initializeApp");
   calculateExperience();
-  // console.timeEnd("initializeApp");
 
   setTimeout(() => {
-    // console.time("createCodePattern");
     createCodePattern();
-    // console.timeEnd("createCodePattern");
-
-    // console.time("createParticles");
     createParticles();
-    // console.timeEnd("createParticles");
   }, 0);
 
   // Add resize listener to handle screen size changes
-  // window.addEventListener("resize", handleResize);
   window.addEventListener("resize", function () {
     if (this.resizeTo) clearTimeout(this.resizeTo);
     this.resizeTo = setTimeout(function () {
       window.dispatchEvent(new Event("resizeEnd"));
     }, 500);
-    // console.time("handleResize");
     handleResize();
-    // console.timeEnd("handleResize");
   });
   window.addEventListener("resizeEnd", function () {
     createCodePattern();
   });
+
+  // pre load all tab content
+  preloadAllTabContent();
+
 });
