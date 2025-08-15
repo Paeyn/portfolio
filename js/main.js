@@ -38,36 +38,37 @@ function calculateExperience() {
 
 const tabContentCache = {};
 
-
 /**
  * Preload all tab content files from /tabs directory
- * Call this on page load to eliminate flash when switching tabs
  */
 async function preloadAllTabContent() {
+	const allTabContent = document.querySelectorAll('.tab-content:not([id*="-overview"])');
+	const loadPromises = Array.from(allTabContent).map( async ele => {
+		const tabID = ele.getAttribute('id');
+		try {
+			const response = await fetch(`tabs/${tabID}.html`);
+			if ( response.ok ) {
+				const content = await response.text();
+				tabContentCache[tabID] = content;
+				ele.innerHTML = content;
 
-  const allTabContent = document.querySelectorAll('.tab-content:not([id*="-overview"])');
-  
-  const tabIDs = Array.from(allTabContent).map( ele => ele.getAttribute('id') );
+				ele.querySelectorAll('pre > code').forEach( el => {
+					console.log( 'trying to highlight', el );
+					hljs.highlightElement(el); 
+				});
+				// hljs.highlightElement(ele);
+				return {tabID, success:true};
+			} else {
+				return {tabID, success:false};
+			}
+		} catch (err) {
+			console.error(`Failed to preload ${tabID}:`, err );
+		}
+	});
 
-  const loadPromises = tabIDs.map( async tabID => {
-    try {
-      const response = await fetch(`tabs/${tabID}.html`);
-      if ( response.ok ) {
-        const content = await response.text();
-        tabContentCache[tabID] = content;
-        return {tabID, success:true};
-      }
-    } catch (err) {
-      console.error(`Failed to preload: ${tabID}:`, err);
-      tabContentCache[tabID] = `<div class="loading">Failed to load code example.</div>`
-    }
-  });
-
-  const results = await Promise.all(loadPromises);
-  const success = results.filter(r => r.success).length;
-  const fail = results.filter(r => !r.success).length;
-
-  return results;
+	const results = Promise.all(loadPromises);
+	// hljs.highlightAll();
+	return results;
 }
 
 async function loadTabContent(event, tabID) {
@@ -83,6 +84,7 @@ async function loadTabContent(event, tabID) {
   const selectedTab = document.getElementById(tabID);
   if (selectedTab) {
     selectedTab.classList.add("active");
+	return;
     if (!tabID.includes("-overview")) {
       if (!tabContentCache[tabID]) {
         selectedTab.innerHTML = `<div class="loading">Loading code example...</div>`;
@@ -115,6 +117,7 @@ async function loadTabContent(event, tabID) {
       }
     }
   }
+  //   hljs.highlightAll();
 }
 
 // Initialize application when DOM is ready
@@ -140,5 +143,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // pre load all tab content
   preloadAllTabContent();
-
 });
