@@ -71,6 +71,17 @@ async function preloadAllTabContent() {
 	// hljs.highlightAll();
 	return results;
 }
+
+async function highlightSnippets() {
+  const allTabContent = document.querySelectorAll('.tab-content:not([id*="-overview"])');
+  // console.log( 'allTabContent', allTabContent);
+  Array.from(allTabContent).map( ele => {
+    ele.querySelectorAll('pre > code').forEach( el => {
+      hljs.highlightElement(el);
+    });
+  });
+}
+
 let testCounts = {};
 async function loadTabContent(event, tabID) {
   // return;
@@ -163,4 +174,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // pre load all tab content
   // preloadAllTabContent();
+
+  // hljs.highlightAll();
+  // highlight code snippets
+  highlightSnippets();
 });

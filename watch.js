@@ -5,6 +5,7 @@ const path = require('path');
 const  { execSync } = require('child_process');
 
 let isProcessing = false;
+let debounceTimer = null;
 
 console.log( `Starting file watcher...`);
 // console.log( `Watching: tabs/ js/ process-js.js` );
@@ -12,16 +13,25 @@ console.log( `Starting file watcher...`);
 function runProcessor() {
     if ( isProcessing ) return;
 
-    isProcessing = true;
-
-    try {
-        execSync('node process-js.js', {stdio:'inherit'});
-        console.log('✅ Processing complete');
-    } catch (error) {
-        console.error('❌ Processing failed:', error.message );
+    if ( debounceTimer ) {
+        clearTimeout(debounceTimer);
     }
 
-    isProcessing = false;
+
+    debounceTimer = setTimeout(() => {
+        
+        isProcessing = true;
+
+        try {
+            execSync('node process-js.js', {stdio:'inherit'});
+            console.log('✅ Processing complete');
+        } catch (error) {
+            console.error('❌ Processing failed:', error.message );
+        }
+
+        isProcessing = false;
+        debounceTimer = null;
+    }, 500);
 }
 
 const watchDirs = ['tabs','js'];
