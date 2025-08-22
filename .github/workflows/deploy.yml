@@ -19,37 +19,37 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: "18"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
 
-    - name: Install dependencies
-      run: npm install jsdom
+      - name: Install dependencies
+        run: npm install jsdom
 
-    - name: Process and inject JS files into HTML
-      run: |
-        echo "Starting JS injection process..."
-        node process-js.js
+      - name: Process and inject JS files into HTML
+        run: |
+          echo "Starting JS injection process..."
+          node process-js.js
 
-    - name: Verify processed files
-      run: |
-        echo "Checking processed files..."
-        ls -la tabs/ || echo "No tabs directory"
-        echo "Listing JS files:"
-        ls -la js/ || echo "No js directory"
+      - name: Verify processed files
+        run: |
+          echo "Checking processed files..."
+          ls -la tabs/ || echo "No tabs directory"
+          echo "Listing JS files:"
+          ls -la js/ || echo "No js directory"
 
-    - name: Setup Pages
-      uses: actions/configure-pages@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v5
-      with:
-        path: "."
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: "."
 
   deploy:
     environment:
