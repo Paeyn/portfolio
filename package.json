@@ -1,0 +1,31 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Static page for my CV / portfolio",
+  "main": "process-js.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node start-dev.js",
+    "watch": "node watch.js",
+    "build": "node process-js.js",
+    "serve": "npx live-server . --port=5500 --entry-file=index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paeyn/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Paeyn/portfolio/issues"
+  },
+  "homepage": "https://github.com/Paeyn/portfolio#readme",
+  "dependencies": {
+    "jsdom": "^26.1.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

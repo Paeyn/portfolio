@@ -7,68 +7,7 @@ Robust error handling with fallback behavior. The complete caching workflow from
       <span class="code-language">Javascript</span>
     </div>
     <div class="code-content">
-      <pre><code class="language-javascript">/**
- * Smart URL Cache for React Native
- * 
- * Intelligent caching system that downloads resources once and serves from cache,
- * with automatic background updates when server content changes.
- * Perfect for mobile apps requiring fast UX with fresh content.
- */
-
-// Core method: Smart resource retrieval with caching
-resourceForURL = async (url, progress, finished, error) => {
-  // Initialize cache directories
-  if (!await this.initDirs()) return undefined;
-
-  const expectedPath = this.CACHE + this.fileNameForURL(url);
-  const exists = await fs.exists(expectedPath);
-  
-  if (exists) {
-    // Return cached version instantly
-    const cachedResource = this.resourceForPath(expectedPath);
-    
-    // Check for updates in background
-    this.isURLMoreRecent(url, expectedPath)
-      .then(async needsUpdate => {
-        if (needsUpdate) {
-          // Download newer version and trigger callback
-          const updated = await this.downloadResource(url, expectedPath, progress, finished, error);
-          updated && finished?.(updated);
-        }
-      });
-    
-    return cachedResource;
-  }
-  
-  // Download resource for first time
-  const resource = await this.downloadResource(url, expectedPath, progress, finished, error);
-  resource && finished?.(resource);
-  return resource;
-};
-
-// Check if server version is newer than cached file
-isURLMoreRecent = async (url, expectedPath) => {
-  try {
-    // Get server's Last-Modified header via HEAD request
-    const response = await fetch(url, { method: "HEAD" });
-    if (response.status === 200) {
-      const lastModifiedString = response?.headers?.map?.["last-modified"];
-      const serverDate = moment(lastModifiedString);
-      
-      // Compare with local file modification time
-      const statResult = await fs.stat(expectedPath);
-      const localDate = moment(statResult.mtime);
-      const timeDiff = localDate.diff(serverDate);
-      
-      // If local file is older, server has newer version
-      return timeDiff < 0;
-    }
-  } catch (e) {
-    console.log('Error checking server date:', e);
-  }
-  return false;
-};
-</code></pre>
+      <pre><code class="language-javascript">[[codehere]]</code></pre>
     </div>
   </div>
 </div>

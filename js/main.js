@@ -73,19 +73,21 @@ async function preloadAllTabContent() {
 }
 let testCounts = {};
 async function loadTabContent(event, tabID) {
+  // return;
   const caseStudy = event.target.closest(".case-study");
   const tabs = caseStudy.querySelectorAll(".project-tab");
   tabs.forEach((tab) => tab.classList.remove("active"));
 
   event.target.classList.add("active");
 
+  
   const tabContents = caseStudy.querySelectorAll(".tab-content");
   tabContents.forEach((content) => content.classList.remove("active"));
 
   const selectedTab = document.getElementById(tabID);
   if (selectedTab) {
     selectedTab.classList.add("active");
-	// return;
+	return;
     if (!tabID.includes("-overview")) {
       if (!tabContentCache[tabID]) {
         // console.log( 'setting loading div' );
@@ -160,5 +162,5 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // pre load all tab content
-  preloadAllTabContent();
+  // preloadAllTabContent();
 });
