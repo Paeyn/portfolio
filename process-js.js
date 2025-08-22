@@ -7,9 +7,27 @@ const { JSDOM } = require('jsdom');
 const TABS_DIR = './tabs';
 const JS_DIR = './js';
 const PLACEHOLDER = '[[codehere]]';
-const OUTPUT = './index.html';
+const __DEV__ = process.argv.includes('--dev');
+const MAIN = './index.html';
+const DEVFILE = './index.dev.html';
+const OUTPUT = __DEV__ ? DEVFILE : MAIN;
 
 console.log('Starting JS injection process...');
+
+if ( __DEV__ ) {
+    if ( fs.existsSync(MAIN) ) {
+        fs.copyFileSync(MAIN,DEVFILE);
+        // let htmlContent = fs.readFileSync(MAIN,'utf8');
+        // const cacheHeaders = `<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">`;
+        // htmlContent = htmlContent.replace('<head>',`<head>${cacheHeaders}`);
+        // fs.writeFileSync(DEVFILE, htmlContent, 'utf8');
+
+        console.log(`Created index.dev.html from index.html template`);
+    } else {
+        console.error(`Error: ${MAIN} not found`);
+        process.exit(1);
+    }
+}
 
 if ( !fs.existsSync(TABS_DIR) ) {
     console.error(`❌ Error: ${TABS_DIR} directory not found`);

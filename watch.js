@@ -23,7 +23,7 @@ function runProcessor() {
         isProcessing = true;
 
         try {
-            execSync('node process-js.js', {stdio:'inherit'});
+            execSync('node process-js.js --dev', {stdio:'inherit'});
             console.log('✅ Processing complete');
         } catch (error) {
             console.error('❌ Processing failed:', error.message );
@@ -41,7 +41,7 @@ watchDirs.forEach(dir => {
     if ( fs.existsSync(dir) ) {
         const watcher = fs.watch(dir, {recursive:true}, (eventType, filename) => {
             console.log( `${dir}/${filename} changed`);
-            setTimeout(runProcessor, 100);
+            setTimeout(runProcessor, 500);
         });
         watchers.push(watcher);
         console.log( `Watching ${dir}/`);
@@ -51,10 +51,19 @@ watchDirs.forEach(dir => {
 if ( fs.existsSync('process-js.js') ) {
     const processorWatcher = fs.watch('process-js.js', () => {
         console.log('process-js.js changed');
-        setTimeout(runProcessor,100);
+        setTimeout(runProcessor,500);
     });
     watchers.push(processorWatcher);
     console.log( `Watching process-js.js`);
+}
+
+if ( fs.existsSync('index.html') ) {
+    const indexWatcher = fs.watch('index.html', () => {
+        console.log( 'index.html changed' );
+        setTimeout(runProcessor,500);
+    });
+    watchers.push(indexWatcher);
+    console.log(`Watching index.html`);
 }
 
 runProcessor();

@@ -8,7 +8,8 @@
     "dev": "node start-dev.js",
     "watch": "node watch.js",
     "build": "node process-js.js",
-    "serve": "npx live-server . --port=5500 --entry-file=index.html"
+    "serve": "npx live-server . --port=5500 --entry-file=index.html",
+    "cleanup": "node -e \"const fs=require('fs'); if (fs.existsSync('./index.dev.html')) fs.unlinkSync('./index.dev.html'); console.log('Cleaned up dev files');\""
   },
   "repository": {
     "type": "git",
