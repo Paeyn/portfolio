@@ -34,7 +34,7 @@ jobs:
       - name: Process and inject JS files into HTML
         run: |
           echo "Starting JS injection process..."
-          node process-js.js
+          node ./js/process-js.js
 
       - name: Verify processed files
         run: |

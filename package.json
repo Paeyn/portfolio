@@ -5,9 +5,9 @@
   "main": "process-js.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node start-dev.js",
-    "watch": "node watch.js",
-    "build": "node process-js.js",
+    "dev": "node ./js/start-dev.js",
+    "watch": "node ./js/watch.js",
+    "build": "node ./js/process-js.js",
     "serve": "npx live-server . --port=5500 --entry-file=index.html",
     "cleanup": "node -e \"const fs=require('fs'); if (fs.existsSync('./index.dev.html')) fs.unlinkSync('./index.dev.html'); console.log('Cleaned up dev files');\""
   },

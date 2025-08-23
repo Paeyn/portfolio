@@ -14,14 +14,11 @@ const OUTPUT = __DEV__ ? DEVFILE : MAIN;
 
 console.log('Starting JS injection process...');
 
+let mainHTMLContent;
 if ( __DEV__ ) {
     if ( fs.existsSync(MAIN) ) {
-        fs.copyFileSync(MAIN,DEVFILE);
-        // let htmlContent = fs.readFileSync(MAIN,'utf8');
-        // const cacheHeaders = `<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">`;
-        // htmlContent = htmlContent.replace('<head>',`<head>${cacheHeaders}`);
-        // fs.writeFileSync(DEVFILE, htmlContent, 'utf8');
-
+        // fs.copyFileSync(MAIN,DEVFILE);
+        mainHTMLContent = fs.readFileSync(MAIN, 'utf8');
         console.log(`Created index.dev.html from index.html template`);
     } else {
         console.error(`Error: ${MAIN} not found`);
@@ -39,10 +36,10 @@ if ( !fs.existsSync(JS_DIR) ) {
     process.exit(1);
 }
 
-if ( !fs.existsSync(OUTPUT) ) {
-    console.error(`❌ Error: ${OUTPUT} not found`);
-    process.exit(1);
-}
+// if ( !fs.existsSync(OUTPUT) ) {
+//     console.error(`❌ Error: ${OUTPUT} not found`);
+//     process.exit(1);
+// }
 
 const htmlFiles = fs.readdirSync(TABS_DIR).filter( f => f.endsWith('.html') );
 console.log( `Found ${htmlFiles.length} HTML files in tabs directory` );
@@ -50,9 +47,6 @@ console.log( `Found ${htmlFiles.length} HTML files in tabs directory` );
 let processedCount = 0;
 let errorCount = 0;
 const processedTabs = {};
-
-// Grab index file
-
 
 htmlFiles.forEach( htmlFile => {
     const baseName = path.basename(htmlFile, '.html');
@@ -100,7 +94,7 @@ htmlFiles.forEach( htmlFile => {
 
 try {
 
-    const mainHTMLContent = fs.readFileSync(OUTPUT, 'utf8');
+    // const mainHTMLContent = fs.readFileSync(OUTPUT, 'utf8');
     const mainDOM = new JSDOM(mainHTMLContent);
     const mainDocument = mainDOM.window.document;
 
@@ -120,7 +114,7 @@ try {
     const updatedHtml = mainDOM.serialize();
     fs.writeFileSync(OUTPUT, updatedHtml, 'utf8');
 
-} catch (err) {
+} catch (error) {
     console.error(`❌ Error processing main HTML file:`, error.message );
     process.exit(1);
 }
