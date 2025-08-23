@@ -15,7 +15,7 @@ const OUTPUT = __DEV__ ? DEVFILE : MAIN;
 console.log('Starting JS injection process...');
 
 let mainHTMLContent;
-if ( __DEV__ ) {
+if ( __DEV__||true ) {
     if ( fs.existsSync(MAIN) ) {
         // fs.copyFileSync(MAIN,DEVFILE);
         mainHTMLContent = fs.readFileSync(MAIN, 'utf8');
